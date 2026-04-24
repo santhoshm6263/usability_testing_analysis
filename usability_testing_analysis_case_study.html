@@ -1,0 +1,363 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.root{padding:1rem 0;font-family:var(--font-sans)}
+.nav{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:1.2rem}
+.nb{padding:5px 11px;font-size:12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;color:var(--color-text-secondary);cursor:pointer}
+.nb.on{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary);font-weight:500}
+.sec{display:none}.sec.on{display:block}
+.sh{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.sd{font-size:12px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.6}
+.card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.875rem 1rem;margin-bottom:10px}
+.ct{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:6px}
+.cs{font-size:12px;color:var(--color-text-secondary);line-height:1.65}
+.badge{display:inline-block;font-size:11px;padding:2px 7px;border-radius:var(--border-radius-md);font-weight:500;margin-right:4px;margin-bottom:4px}
+.b-teal{background:#E1F5EE;color:#0F6E56}
+.b-purple{background:#EEEDFE;color:#3C3489}
+.b-amber{background:#FAEEDA;color:#854F0B}
+.b-blue{background:#E6F1FB;color:#185FA5}
+.b-coral{background:#FAECE7;color:#993C1D}
+.b-red{background:#FCEBEB;color:#791F1F}
+.b-green{background:#EAF3DE;color:#3B6D11}
+.row{padding:8px 0;border-bottom:0.5px solid var(--color-border-tertiary)}
+.row:last-child{border-bottom:none}
+.rn{font-size:12px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.rd{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.flex{display:flex;gap:10px;align-items:flex-start}
+.metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem;flex:1;min-width:0}
+.mlabel{font-size:11px;color:var(--color-text-secondary);margin-bottom:3px}
+.mval{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.msub{font-size:11px;color:var(--color-text-tertiary);margin-top:2px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sev-high{background:#FCEBEB;color:#791F1F}
+.sev-med{background:#FAEEDA;color:#854F0B}
+.sev-low{background:#EAF3DE;color:#3B6D11}
+.bar-bg{background:var(--color-background-secondary);border-radius:4px;height:8px;margin-top:4px;overflow:hidden}
+.bar-fill{height:8px;border-radius:4px;background:var(--color-text-info);transition:width .4s}
+.sc-num{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-tertiary);margin-bottom:3px}
+.steps{font-size:12px;color:var(--color-text-secondary);line-height:1.8;padding-left:14px}
+.phase-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}
+</style>
+
+<div class="root">
+<h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Usability Testing and Analysis case study for a task management mobile app — test plan, 5 tester observations, findings, metrics, and improvement suggestions</h2>
+
+<div style="margin-bottom:1rem">
+  <div style="font-size:10px;font-weight:500;letter-spacing:.06em;color:var(--color-text-tertiary);text-transform:uppercase;margin-bottom:3px">Task 4 — Usability Testing & Analysis</div>
+  <div style="font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px">TaskFlow App — Usability Report</div>
+  <div style="font-size:12px;color:var(--color-text-secondary);line-height:1.6">Complete usability test plan, session observations, findings analysis, and design improvement recommendations.</div>
+  <div style="margin-top:8px">
+    <span class="badge b-blue">5 testers</span>
+    <span class="badge b-teal">3 scenarios</span>
+    <span class="badge b-purple">Moderated sessions</span>
+    <span class="badge b-amber">Iterative design</span>
+  </div>
+</div>
+
+<div class="nav">
+  <button class="nb on" onclick="show('plan')">Test plan</button>
+  <button class="nb" onclick="show('scenarios')">Scenarios</button>
+  <button class="nb" onclick="show('observations')">Observations</button>
+  <button class="nb" onclick="show('metrics')">Metrics</button>
+  <button class="nb" onclick="show('findings')">Findings</button>
+  <button class="nb" onclick="show('improvements')">Improvements</button>
+  <button class="nb" onclick="show('report')">Full report</button>
+</div>
+
+<div id="s-plan" class="sec on">
+  <div class="sh">Usability test plan</div>
+  <div class="sd">A test plan defines exactly who, what, when, and how you test — written before any session begins. Think of it as your project brief for testing.</div>
+  <div class="card">
+    <div class="ct">Product being tested</div>
+    <div class="cs">TaskFlow — a mobile task management app (Figma clickable prototype). The prototype covers 6 screens: Splash, Onboarding, Login, Home, Add Task, and Profile.</div>
+  </div>
+  <div class="card">
+    <div class="ct">Testing objective</div>
+    <div class="cs">Identify usability issues that prevent users from completing core tasks efficiently. Measure task completion rate, time-on-task, and satisfaction. Validate or invalidate key design decisions before development begins.</div>
+  </div>
+  <div class="card">
+    <div class="ct">Participant criteria</div>
+    <div class="grid2" style="margin-top:6px">
+      <div style="font-size:12px;padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-secondary)">Age 18–35</div>
+      <div style="font-size:12px;padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-secondary)">Smartphone user daily</div>
+      <div style="font-size:12px;padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-secondary)">Has used any to-do app</div>
+      <div style="font-size:12px;padding:8px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-secondary)">Not a UX designer</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct">Session structure</div>
+    <div class="row"><div class="rn">Pre-session briefing (5 min)</div><div class="rd">Explain the process, get consent, clarify this tests the app — not the user.</div></div>
+    <div class="row"><div class="rn">Think-aloud warm-up (3 min)</div><div class="rd">Ask user to narrate actions on a simple unrelated task to get comfortable.</div></div>
+    <div class="row"><div class="rn">3 test scenarios (15 min)</div><div class="rd">One scenario at a time. Observer watches and notes without helping.</div></div>
+    <div class="row"><div class="rn">Post-session interview (7 min)</div><div class="rd">5 questions about experience. SUS questionnaire completed by participant.</div></div>
+  </div>
+  <div class="card">
+    <div class="ct">What the observer records</div>
+    <div class="cs">For each task: did they complete it (Y/N), how long it took (seconds), any hesitations or wrong taps, and any verbal comments. These go into the observation log (see Observations tab).</div>
+  </div>
+</div>
+
+<div id="s-scenarios" class="sec">
+  <div class="sh">Test scenarios</div>
+  <div class="sd">Each scenario gives the user a realistic goal — never a UI instruction. "Tap the blue button" tells them what to do; "find out how to add a task" tests whether the design communicates it.</div>
+
+  <div class="card" style="margin-bottom:10px">
+    <div class="sc-num">Scenario 1</div>
+    <div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px">First launch to home screen</div>
+    <div class="rd" style="margin-bottom:8px">Goal: Complete onboarding and reach the Home screen unaided. Measures: time to home, skip rate, login confusion.</div>
+    <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:4px">Instructions read to participant:</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:12px;color:var(--color-text-secondary);line-height:1.65;font-style:italic">"Imagine you've just downloaded this app. Open it and get yourself set up with an account. Tell me when you feel you've arrived at the main screen."</div>
+    <div style="margin-top:8px">
+      <span class="badge b-blue">Target: under 90 sec</span>
+      <span class="badge b-teal">Screen: Splash → Home</span>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:10px">
+    <div class="sc-num">Scenario 2</div>
+    <div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px">Add a new task with details</div>
+    <div class="rd" style="margin-bottom:8px">Goal: Create a task with a title, due date (today), and priority colour. Measures: FAB discoverability, form completion rate, time-on-task.</div>
+    <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:4px">Instructions read to participant:</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:12px;color:var(--color-text-secondary);line-height:1.65;font-style:italic">"You're on the main screen. Add a new task called 'Buy groceries', set it for today, and mark it as high priority. Save it."</div>
+    <div style="margin-top:8px">
+      <span class="badge b-blue">Target: under 45 sec</span>
+      <span class="badge b-amber">Screen: Home → Add Task</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="sc-num">Scenario 3</div>
+    <div style="font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:5px">Complete a task and check stats</div>
+    <div class="rd" style="margin-bottom:8px">Goal: Mark a task complete and navigate to Profile to view completion stats. Measures: checkbox discoverability, nav bar usability, stat comprehension.</div>
+    <div style="font-size:11px;font-weight:500;color:var(--color-text-secondary);margin-bottom:4px">Instructions read to participant:</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px 10px;font-size:12px;color:var(--color-text-secondary);line-height:1.65;font-style:italic">"Mark the 'Buy groceries' task as done. Then find out how many tasks you've completed in total since you started using the app."</div>
+    <div style="margin-top:8px">
+      <span class="badge b-blue">Target: under 30 sec</span>
+      <span class="badge b-teal">Screen: Home → Profile</span>
+    </div>
+  </div>
+</div>
+
+<div id="s-observations" class="sec">
+  <div class="sh">Session observations</div>
+  <div class="sd">Observations from 5 moderated sessions. Each row shows what the tester did, said, or struggled with — raw and uninterpreted. Analysis happens in the Findings tab.</div>
+
+  <div class="card">
+    <div class="ct">Tester 1 — Priya, 23, student</div>
+    <div class="row"><div class="rn">Scenario 1</div><div class="rd">Completed in 72 sec. Skipped onboarding immediately. Hesitated on login — "do I need a real email?" Reached home without issues.</div></div>
+    <div class="row"><div class="rn">Scenario 2</div><div class="rd">Did not see the FAB (38 sec to find it). Tapped search bar first. Said "where do I add?" Priority dots caused confusion — tapped wrong colour twice.</div></div>
+    <div class="row"><div class="rn">Scenario 3</div><div class="rd">Completed task mark easily (loved the animation). Could not find Profile — tapped Home icon twice before locating Profile icon. Total: 41 sec.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Tester 2 — Arjun, 31, software engineer</div>
+    <div class="row"><div class="rn">Scenario 1</div><div class="rd">Completed in 48 sec. Read all 3 onboarding slides. Login was fast. Said "clean, like it."</div></div>
+    <div class="row"><div class="rn">Scenario 2</div><div class="rd">Found FAB in 6 sec. Filled form quickly. Asked "what do the colours mean?" — didn't set priority. Completed in 29 sec without priority set.</div></div>
+    <div class="row"><div class="rn">Scenario 3</div><div class="rd">Marked task instantly. Found Profile in 8 sec. Noted: "the stats should show a graph, not just numbers." Completed in 18 sec.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Tester 3 — Kavya, 26, marketing exec</div>
+    <div class="row"><div class="rn">Scenario 1</div><div class="rd">Completed in 85 sec. Read onboarding slowly. Typed real credentials — worried about security. Said "is this safe?"</div></div>
+    <div class="row"><div class="rn">Scenario 2</div><div class="rd">Found FAB in 14 sec. Set title and date correctly. Spent 22 sec on priority dots — selected all four before choosing one. Said "I don't know what these mean."</div></div>
+    <div class="row"><div class="rn">Scenario 3</div><div class="rd">Completed task mark easily. Navigated to Profile in 11 sec. Understood stats. Total: 24 sec.</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Tester 4 — Rahul, 19, college student</div>
+    <div class="row"><div class="rn">Scenario 1</div><div class="rd">Completed in 61 sec. Skipped onboarding. Used Google sign-in. Reached home smoothly.</div></div>
+    <div class="row"><div class="rn">Scenario 2</div><div class="rd">Found FAB instantly (3 sec). Filled form completely in 27 sec. Set red as priority without hesitation. Only tester to complete all fields.</div></div>
+    <div class="row"><div class="rn">Scenario 3</div><div class="rd">Completed task. Took 19 sec to find Profile — tapped Calendar icon first. Said "the profile icon is too small."</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Tester 5 — Sneha, 34, teacher</div>
+    <div class="row"><div class="rn">Scenario 1</div><div class="rd">Completed in 98 sec. Read all onboarding. Needed extra time on login. Confused by "Continue with Google" — thought it required a Google account only.</div></div>
+    <div class="row"><div class="rn">Scenario 2</div><div class="rd">Did not find FAB (gave up after 60 sec). Moderator had to point it out. Could not set priority — said "are these decoration?"</div></div>
+    <div class="row"><div class="rn">Scenario 3</div><div class="rd">Marked task complete. Needed 35 sec to find Profile. Confused stat labels. Said "completed tasks — does that mean ever, or just today?"</div></div>
+  </div>
+</div>
+
+<div id="s-metrics" class="sec">
+  <div class="sh">Usability metrics</div>
+  <div class="sd">Quantified results across all 5 testers and 3 scenarios. These numbers go into your report to back up qualitative findings.</div>
+
+  <div class="grid2" style="margin-bottom:10px">
+    <div class="metric"><div class="mlabel">Overall completion rate</div><div class="mval">73%</div><div class="msub">11 of 15 tasks completed</div></div>
+    <div class="metric"><div class="mlabel">Avg. SUS score</div><div class="mval">67</div><div class="msub">Target: 68+ (acceptable)</div></div>
+    <div class="metric"><div class="mlabel">Critical issues found</div><div class="mval">4</div><div class="msub">FAB, priority, nav, stats</div></div>
+    <div class="metric"><div class="mlabel">Sessions completed</div><div class="mval">5</div><div class="msub">All moderated, 30 min each</div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Task completion rate by scenario</div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px"><div class="rn" style="margin:0">Scenario 1 — onboarding to home</div><span style="font-size:12px;font-weight:500;color:var(--color-text-primary)">100%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:100%;background:#1D9E75"></div></div>
+    </div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px"><div class="rn" style="margin:0">Scenario 2 — add task (all fields)</div><span style="font-size:12px;font-weight:500;color:var(--color-text-primary)">40%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:40%;background:#E24B4A"></div></div>
+    </div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px"><div class="rn" style="margin:0">Scenario 3 — complete task + stats</div><span style="font-size:12px;font-weight:500;color:var(--color-text-primary)">80%</span></div>
+      <div class="bar-bg"><div class="bar-fill" style="width:80%;background:#BA7517"></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Average time on task (seconds)</div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between"><div class="rn" style="margin:0">Scenario 1</div><span style="font-size:12px;color:var(--color-text-secondary)">73 sec — target 90 sec</span></div>
+      <div style="font-size:11px;color:#1D9E75;margin-top:2px">Within target</div>
+    </div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between"><div class="rn" style="margin:0">Scenario 2</div><span style="font-size:12px;color:var(--color-text-secondary)">68 sec — target 45 sec</span></div>
+      <div style="font-size:11px;color:#E24B4A;margin-top:2px">Exceeded target by 51%</div>
+    </div>
+    <div class="row">
+      <div style="display:flex;justify-content:space-between"><div class="rn" style="margin:0">Scenario 3</div><span style="font-size:12px;color:var(--color-text-secondary)">27 sec — target 30 sec</span></div>
+      <div style="font-size:11px;color:#1D9E75;margin-top:2px">Within target</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Post-session ratings (1–5 scale)</div>
+    <div class="row"><div style="display:flex;justify-content:space-between"><span class="rn" style="margin:0">Easy to navigate</span><span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">3.4</span></div></div>
+    <div class="row"><div style="display:flex;justify-content:space-between"><span class="rn" style="margin:0">Visual clarity</span><span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">3.8</span></div></div>
+    <div class="row"><div style="display:flex;justify-content:space-between"><span class="rn" style="margin:0">I would use this app</span><span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">4.0</span></div></div>
+    <div class="row"><div style="display:flex;justify-content:space-between"><span class="rn" style="margin:0">Priority colour meaning</span><span style="font-size:13px;font-weight:500;color:var(--color-text-primary)">1.8</span></div></div>
+  </div>
+</div>
+
+<div id="s-findings" class="sec">
+  <div class="sh">Findings & analysis</div>
+  <div class="sd">Each finding is a named, severity-rated usability issue backed by tester evidence. This is the core of your report — recruiters and reviewers read this section most carefully.</div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+      <div class="ct" style="margin:0">Finding 1 — Priority colour ambiguity</div>
+      <span class="badge sev-high">High severity</span>
+    </div>
+    <div class="cs" style="margin-bottom:6px">4 of 5 testers could not correctly interpret the priority colour dots. Users spent 15–22 extra seconds on this element, and 2 testers failed to set priority at all.</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px;font-size:12px;color:var(--color-text-secondary);font-style:italic">"I don't know what these mean" — Kavya &nbsp;|&nbsp; "Are these decoration?" — Sneha</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--color-text-secondary)"><span style="font-weight:500;color:var(--color-text-primary)">Root cause:</span> Colour alone carries no label. Users have no shared mental model for red = urgent unless told.</div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+      <div class="ct" style="margin:0">Finding 2 — FAB not discovered promptly</div>
+      <span class="badge sev-high">High severity</span>
+    </div>
+    <div class="cs" style="margin-bottom:6px">3 of 5 testers took longer than 15 seconds to find the + button. 1 tester (Sneha) never found it and required moderator intervention.</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px;font-size:12px;color:var(--color-text-secondary);font-style:italic">"Where do I add?" — Priya (after 38 seconds)</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--color-text-secondary)"><span style="font-weight:500;color:var(--color-text-primary)">Root cause:</span> FAB blends into the screen. No label, no first-use highlight, and 48px size is too small for users unfamiliar with the pattern.</div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+      <div class="ct" style="margin:0">Finding 3 — Profile icon hard to locate</div>
+      <span class="badge sev-med">Medium severity</span>
+    </div>
+    <div class="cs" style="margin-bottom:6px">4 of 5 testers tapped a wrong bottom nav icon before finding Profile. Average extra time: 12 seconds. Testers expected Profile at far right of nav.</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--color-text-secondary)"><span style="font-weight:500;color:var(--color-text-primary)">Root cause:</span> Profile icon is 3rd of 4 icons, not last. Convention (iOS, Android) places Profile/Account as the rightmost nav item.</div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+      <div class="ct" style="margin:0">Finding 4 — Stats labels are ambiguous</div>
+      <span class="badge sev-med">Medium severity</span>
+    </div>
+    <div class="cs" style="margin-bottom:6px">2 of 5 testers were unsure whether "Tasks completed" meant all-time or today. Caused confusion on Scenario 3.</div>
+    <div style="background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:8px;font-size:12px;color:var(--color-text-secondary);font-style:italic">"Does that mean completed today, or ever?" — Sneha</div>
+    <div style="margin-top:8px;font-size:12px;color:var(--color-text-secondary)"><span style="font-weight:500;color:var(--color-text-primary)">Root cause:</span> Stat labels lack a time scope. "23 tasks" with no qualifier is ambiguous.</div>
+  </div>
+
+  <div class="card" style="border-left:2px solid #1D9E75">
+    <div class="ct">Positive finding — Task completion animation</div>
+    <div class="cs">5 of 5 testers expressed verbal delight at the checkmark spring animation. "I like that" (Arjun), "Oh nice!" (Kavya). This is a core differentiator — retain and amplify.</div>
+  </div>
+</div>
+
+<div id="s-improvements" class="sec">
+  <div class="sh">Design improvements</div>
+  <div class="sd">Each improvement maps directly to a finding. This is what your v2 prototype should change — and what you test in the next round.</div>
+
+  <div class="card">
+    <div class="flex"><div class="dot" style="background:#E24B4A"></div><div>
+      <div class="rn">Fix 1 — Replace colour dots with labelled priority tags</div>
+      <div class="rd">Change the 4 colour circles to pill-shaped tags: "Low", "Medium", "High", "Urgent" — each with its colour as background. Label removes all ambiguity. No cognitive effort needed.</div>
+      <div style="margin-top:6px"><span class="badge b-green">Fixes Finding 1</span><span class="badge b-blue">Effort: low</span></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="flex"><div class="dot" style="background:#E24B4A"></div><div>
+      <div class="rn">Fix 2 — Enlarge FAB + add first-use label</div>
+      <div class="rd">Increase FAB from 48px to 58px. On first launch only, show a brief label "Add task" beside the button (fades after 3 seconds). Add a one-time pulse ring animation to draw attention.</div>
+      <div style="margin-top:6px"><span class="badge b-green">Fixes Finding 2</span><span class="badge b-amber">Effort: medium</span></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="flex"><div class="dot" style="background:#BA7517"></div><div>
+      <div class="rn">Fix 3 — Move Profile icon to rightmost nav position</div>
+      <div class="rd">Reorder bottom nav: Home · Search · Calendar · Profile (right). Follows iOS and Android conventions that 100% of testers expected. One icon move, zero design work.</div>
+      <div style="margin-top:6px"><span class="badge b-green">Fixes Finding 3</span><span class="badge b-blue">Effort: minimal</span></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="flex"><div class="dot" style="background:#BA7517"></div><div>
+      <div class="rn">Fix 4 — Add time scope to stat labels</div>
+      <div class="rd">Change "Tasks completed" to "Tasks completed (all time)". Add a secondary line: "7 completed today". Two lines, zero ambiguity.</div>
+      <div style="margin-top:6px"><span class="badge b-green">Fixes Finding 4</span><span class="badge b-blue">Effort: minimal</span></div>
+    </div></div>
+  </div>
+
+  <div class="card">
+    <div class="ct">Iteration plan</div>
+    <div class="row"><div class="rn">v2 prototype (this week)</div><div class="rd">Apply all 4 fixes above. Rebuild the Add Task screen with labelled priority tags and the larger FAB.</div></div>
+    <div class="row"><div class="rn">Round 2 testing (next week)</div><div class="rd">Re-run Scenarios 2 and 3 only with 3 new testers. Measure if FAB discovery time drops below 10 sec and priority completion rate exceeds 80%.</div></div>
+    <div class="row"><div class="rn">Success criteria</div><div class="rd">Task 2 completion rate 80%+. Average time on Scenario 2 under 45 sec. SUS score 75+.</div></div>
+  </div>
+</div>
+
+<div id="s-report" class="sec">
+  <div class="sh">Full report summary</div>
+  <div class="sd">Case study format: Problem → Process → Findings → Solution → Outcome. Copy this into your GitHub README or portfolio submission.</div>
+
+  <div class="card">
+    <div class="phase-label" style="color:#E24B4A">Problem</div>
+    <div class="cs">The TaskFlow prototype was designed to simplify task management. Before development, we needed to validate whether users could complete the 3 core tasks — onboarding, adding a task, and tracking progress — without confusion or errors.</div>
+  </div>
+  <div class="card">
+    <div class="phase-label" style="color:#185FA5">Process</div>
+    <div class="cs">Recruited 5 participants matching the target persona (ages 19–34, daily smartphone users). Conducted 30-minute moderated usability sessions using a Figma clickable prototype. Each session covered 3 scenarios using the think-aloud method. Collected both quantitative data (task time, completion rate) and qualitative data (verbal comments, hesitations).</div>
+  </div>
+  <div class="card">
+    <div class="phase-label" style="color:#854F0B">Key findings</div>
+    <div class="cs">4 usability issues identified: (1) Priority colour dots had no labels — 4/5 testers confused. (2) FAB button not discovered by 3/5 testers quickly. (3) Profile nav icon in wrong position for platform conventions. (4) Stats labels had no time scope. One strong positive: task completion animation received universal delight (5/5). Overall SUS score: 67 — borderline acceptable.</div>
+  </div>
+  <div class="card">
+    <div class="phase-label" style="color:#0F6E56">Solution</div>
+    <div class="cs">Four targeted design changes proposed for v2: labelled priority tags, larger FAB with first-use tooltip, Profile moved to rightmost nav position, and stat labels with time scope added. All changes are low-to-medium effort and do not require new screens — only component-level edits.</div>
+  </div>
+  <div class="card">
+    <div class="phase-label" style="color:#3C3489">Projected outcome</div>
+    <div class="cs">Target for v2 round: Task 2 completion rate from 40% to 80%+. Average time on Scenario 2 from 68 sec to under 45 sec. SUS score from 67 to 75+. Two new testers and one returning tester will validate the changes before development begins.</div>
+  </div>
+
+  <button onclick="sendPrompt('Generate the GitHub README markdown for the TaskFlow usability testing report')" style="margin-top:4px;padding:7px 14px;font-size:12px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;color:var(--color-text-primary)">Generate GitHub README ↗</button>
+</div>
+</div>
+
+<script>
+const secs=['plan','scenarios','observations','metrics','findings','improvements','report'];
+function show(id){
+  secs.forEach(s=>{document.getElementById('s-'+s).classList.remove('on')});
+  document.querySelectorAll('.nb').forEach((b,i)=>{b.classList.toggle('on',secs[i]===id)});
+  document.getElementById('s-'+id).classList.add('on');
+}
+</script>
